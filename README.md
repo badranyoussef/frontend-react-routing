@@ -3,4 +3,4 @@
 ## Overview
 
 - Youssef Badran
-- all assignment are included
+- all assignments are included

@@ -1,9 +1,9 @@
 import MainNav from './MainNav';
 
-export default function Header() {
+export default function Header({isLoggedIn}) {
     return (
         <>
-            <MainNav/>
+            <MainNav isLoggedIn={isLoggedIn} />
         </>
     )
 }

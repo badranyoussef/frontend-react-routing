@@ -1,7 +1,15 @@
 import car from '../assets/car.jpg'
 import styled from 'styled-components';
 
-// styled component til bilen
+// Styled component til bilen
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Gør containeren til at fylde hele skærmen lodret */
+`;
+
 const CustomImage = styled.img`
   width: 800px;
   height: auto;
@@ -9,20 +17,15 @@ const CustomImage = styled.img`
 `;
 
 // eslint-disable-next-line react/prop-types
-export default function Home ({user, isLoggedIn}) {
-
+export default function Home({ user, isLoggedIn }) {
     return (
-        <>
-            <h1>Home</h1>
-            <h3>Hello and welcome to this amazing car app!</h3>
-            {isLoggedIn && (
-                <>
-                    <p>WELCOME {user.email}</p>
-                </>
-            )}
+        <Container>
             <div>
-            <CustomImage src={car} alt=""/>
+                <h1>Home</h1>
+                <h3>Hello and welcome to this amazing car app!</h3>
+                {isLoggedIn && <p>WELCOME {user.email}</p>}
             </div>
-        </>
-    )
+            <CustomImage src={car} alt="" />
+        </Container>
+    );
 }

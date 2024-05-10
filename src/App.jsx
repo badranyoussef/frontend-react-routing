@@ -28,7 +28,7 @@ function App() {
   return (
       <BrowserRouter>
           <Routes>
-              <Route element={<AppLayout/>}>
+              <Route element={<AppLayout isLoggedIn={isLoggedIn} />}>
               <Route index element={<Navigate to="home" />} />
               <Route path="/home" element={<Home user={user} isLoggedIn={isLoggedIn} />} />
               <Route path="/login" element={<Login welcomeUser={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />

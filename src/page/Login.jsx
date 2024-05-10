@@ -54,7 +54,6 @@ const Login = ({setUser, isLoggedIn, setIsLoggedIn}) => {
     <>
     <GlobalFormStyles/>
       <h1>Login</h1>
-      <h3>Login here</h3>
       {/* Formular til login */}
       <form onSubmit={handleSubmit}>
         {/* Brugernavn */}

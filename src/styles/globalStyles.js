@@ -28,24 +28,25 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-
     }
 
     body {
+        background-color: lightgrey;
         font-family: 'Roboto', 'sans-serif'; //hvis ikke robotic virker så tager den sans-serif
         display: flex;
         justify-content: center;
         align-items: center; /* Tilføjet for at centrere indholdet både vertikalt og horisontalt */
     }
-    h1{
+
+    h1 {
         font-size: 24px;
         text-align: center;
         margin-bottom: 20px;
     }
-    
+
 
     ul {
-        background-color: #f8106b;
+        background-color: black;
         list-style-type: none;
         width: 100vw;
         padding: 0;

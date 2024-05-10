@@ -7,7 +7,7 @@ export default function MainNavTest({isLoggedIn}){
             <li><NavLink to="/home">Home</NavLink></li>
             {!isLoggedIn && <li><NavLink to="/login">Login</NavLink></li>}
             {!isLoggedIn && <li><NavLink to="/register">Register</NavLink></li>}
-            {isLoggedIn && <li><NavLink to="/entity">Entity</NavLink></li>}
+            {isLoggedIn && <li><NavLink to="/entity">Entities (All Cars)</NavLink></li>}
             {isLoggedIn && <li><NavLink to="/logout">Logout</NavLink></li>}
         </ul>
     )

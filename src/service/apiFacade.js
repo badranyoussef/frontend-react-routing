@@ -1,5 +1,6 @@
 import { BASE_URL_DEV } from "../utils/globalVariables.js";
 
+
 export const login = async (username, password) => {
   try {
     const response = await fetch(`${BASE_URL_DEV}/auth/login`, {

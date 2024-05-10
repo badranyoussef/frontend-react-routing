@@ -59,4 +59,4 @@ export const registerUser = async (name, email, password, phone) => {
   }catch (error){
     throw new Error(error.message + "catch error fanget her...");
   }
-}
+} 

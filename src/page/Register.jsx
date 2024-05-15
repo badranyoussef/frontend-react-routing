@@ -2,6 +2,17 @@ import { useState } from "react";
 import {registerUser} from "../service/apiFacade.js";
 import {Navigate} from "react-router-dom";
 import GlobalFormStyles from "../styles/GlobalFormStyle.js";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+
 
 // eslint-disable-next-line react/prop-types
 const Register = ({setUser, isLoggedIn, setIsLoggedIn}) => {
@@ -54,6 +65,7 @@ const Register = ({setUser, isLoggedIn, setIsLoggedIn}) => {
 
   return (
     <>
+      <Container>
       <GlobalFormStyles/>
       <h1>Register</h1>
       {/* Formular til registrering */}
@@ -107,8 +119,9 @@ const Register = ({setUser, isLoggedIn, setIsLoggedIn}) => {
           />
         </div>
         {/* Indsend knap */}
-        <button type="submit">Registrer</button>
+        <button type="submit" disabled={!formData.username || !formData.password}>Registrer</button>
       </form>
+      </Container>
     </>
   );
 };

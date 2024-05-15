@@ -5,6 +5,8 @@ import Login from "./page/Login.jsx";
 import Register from "./page/Register.jsx";
 import {useEffect, useState} from "react";
 import Entity from "./page/Entity.jsx";
+import {ProtectedRoute} from "./auth/ProtectedRoutes.jsx";
+import PageNotFound from "./page/PageNotFound.jsx";
 
 
 // eslint-disable-next-line react/prop-types
@@ -28,17 +30,17 @@ function App() {
   return (
       <BrowserRouter>
           <Routes>
-              <Route element={<AppLayout isLoggedIn={isLoggedIn} />}>
-              <Route index element={<Navigate to="home" />} />
-              <Route path="/home" element={<Home user={user} isLoggedIn={isLoggedIn} />} />
-              <Route path="/login" element={<Login welcomeUser={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-                  <Route path="/register" element={<Register setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-                  <Route path="/entity" element={<Entity isLoggedIn={isLoggedIn} user={user} setUser={setUser} />} />
-                  <Route path="/logout" element={<Logout handleLogout={handleLogout} />} />
+              <Route element={<ProtectedRoute isLoggedIn={isLoggedIn}><AppLayout isLoggedIn={isLoggedIn} /></ProtectedRoute>}>
+                <Route index element={<Navigate to="home" />} />
+                <Route path="/home" element={<Home user={user} isLoggedIn={isLoggedIn} />} />
+                <Route path="/entity" element={<Entity isLoggedIn={isLoggedIn} user={user} setUser={setUser} />} />
+                <Route path="/logout" element={<Logout handleLogout={handleLogout} />} />
               </Route>
+              <Route path="/login" element={<Login welcomeUser={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+              <Route path="/register" element={<Register setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+              <Route path="*" element={<PageNotFound/>} />
           </Routes>
       </BrowserRouter>
-
   );
 }
 

@@ -1,7 +1,26 @@
 import { useState } from "react";
 import {login} from '../service/apiFacade.js';
-import {Navigate} from "react-router-dom";
 import GlobalFormStyles from "../styles/GlobalFormStyle.js";
+import {Navigate, NavLink} from "react-router-dom";
+import styled from "styled-components";
+
+
+const RegisterLink = styled(NavLink)`
+  text-decoration: none;
+  color: #007bff;
+  margin-top: 10px;
+  display: block;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+
 
 // eslint-disable-next-line react/prop-types
 const Login = ({setUser, isLoggedIn, setIsLoggedIn}) => {
@@ -52,6 +71,7 @@ const Login = ({setUser, isLoggedIn, setIsLoggedIn}) => {
 
   return (
     <>
+      <Container>
     <GlobalFormStyles/>
       <h1>Login</h1>
       {/* Formular til login */}
@@ -83,6 +103,9 @@ const Login = ({setUser, isLoggedIn, setIsLoggedIn}) => {
         {/* login knap */}
         <button type="submit">Login</button>
       </form>
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
+      <RegisterLink to="/register" >Don't have an account? Register here</RegisterLink>
+      </Container>
     </>
   );
 };

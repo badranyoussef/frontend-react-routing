@@ -48,7 +48,7 @@ const Login = ({setUser, isLoggedIn, setIsLoggedIn}) => {
       const response = await login(formData.username, formData.password)
 
       // Udtrækker JSON-responsen fra fetch-anmodningen
-      console.log(response);
+      console.log("respons: ",response);
 
       // Nulstiler formular efter indsendelse
       setFormData({

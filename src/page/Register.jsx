@@ -119,7 +119,7 @@ const Register = ({setUser, isLoggedIn, setIsLoggedIn}) => {
           />
         </div>
         {/* Indsend knap */}
-        <button type="submit" disabled={!formData.username || !formData.password}>Registrer</button>
+        <button type="submit">Registrer</button>
       </form>
       </Container>
     </>

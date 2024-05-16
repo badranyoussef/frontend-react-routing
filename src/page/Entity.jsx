@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchCarsForUser } from '../service/apiFacade';
 import styled from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Container = styled.div`
     display: flex;
@@ -9,30 +10,6 @@ const Container = styled.div`
     align-items: center;
     height: 100vh; /* Gør containeren til at fylde hele skærmen lodret */
 `;
-
-const EntityContainer = styled.div`
-    margin: 20px;
-`;
-
-const CarTable = styled.table`
-    width: 100%;
-    border-collapse: collapse;
-`;
-
-const TableHeader = styled.th`
-    background-color: #f2f2f2;
-`;
-
-const TableRow = styled.tr`
-    &:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    &:hover {
-        background-color: #ddd;
-    }
-`;
-
 
 
 // eslint-disable-next-line react/prop-types
@@ -56,32 +33,31 @@ const Entity = ({ user }) => {
 
     return (
         <Container>
-        <EntityContainer>
-            <h2>Alle biler</h2>
-            <CarTable>
-                <TableHeader>
-                <TableRow>
-                    <th>Mærke</th>
-                    <th>Model</th>
-                    <th>Årgang</th>
-                    <th>Indregistrerings dato</th>
-                    <th>Pris</th>
-                </TableRow>
-                </TableHeader>
-                <tbody>
-                {cars.map(car => (
-                    console.log(car),
-                    <tr key={car.id}>
-                        <td>{car.brand}</td>
-                        <td>{car.model}</td>
-                        <td>{car.year}</td>
-                        <td>{formatDate(car.firstRegistrationDate)}</td>
-                        <td>{car.price}</td>
+            <div className="container">
+                <h2>Alle biler</h2>
+                <table className="table">
+                    <thead>
+                    <tr>
+                        <th>Mærke</th>
+                        <th>Model</th>
+                        <th>Årgang</th>
+                        <th>Indregistrerings dato</th>
+                        <th>Pris</th>
                     </tr>
-                ))}
-                </tbody>
-            </CarTable>
-        </EntityContainer>
+                    </thead>
+                    <tbody>
+                    {cars.map(car => (
+                        <tr key={car.id}>
+                            <td>{car.brand}</td>
+                            <td>{car.model}</td>
+                            <td>{car.year}</td>
+                            <td>{formatDate(car.firstRegistrationDate)}</td>
+                            <td>{car.price}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </Container>
     );
 };

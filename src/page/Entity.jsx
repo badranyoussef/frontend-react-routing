@@ -1,5 +1,31 @@
 import { useState, useEffect } from 'react';
 import { fetchCarsForUser } from '../service/apiFacade';
+import styled from 'styled-components';
+
+const EntityContainer = styled.div`
+    margin: 20px;
+`;
+
+const CarTable = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+`;
+
+const TableHeader = styled.th`
+    background-color: #f2f2f2;
+`;
+
+const TableRow = styled.tr`
+    &:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    &:hover {
+        background-color: #ddd;
+    }
+`;
+
+
 
 // eslint-disable-next-line react/prop-types
 const Entity = ({ user }) => {
@@ -21,18 +47,18 @@ const Entity = ({ user }) => {
     }
 
     return (
-        <div>
+        <EntityContainer>
             <h2>Alle biler</h2>
-            <table>
-                <thead>
-                <tr>
+            <CarTable>
+                <TableHeader>
+                <TableRow>
                     <th>Mærke</th>
                     <th>Model</th>
                     <th>Årgang</th>
                     <th>Indregistrerings dato</th>
                     <th>Pris</th>
-                </tr>
-                </thead>
+                </TableRow>
+                </TableHeader>
                 <tbody>
                 {cars.map(car => (
                     console.log(car),
@@ -45,8 +71,8 @@ const Entity = ({ user }) => {
                     </tr>
                 ))}
                 </tbody>
-            </table>
-        </div>
+            </CarTable>
+        </EntityContainer>
     );
 };
 

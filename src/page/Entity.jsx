@@ -10,6 +10,8 @@ const Entity = ({ user }) => {
         fetchCarsForUser(user.token)
             .then(data => setCars(data))
             .catch(error => console.error('Fejl ved hentning af bildata:', error));
+        console.log("msg from useeffect fetch cars",user)
+        console.log(user.token)
     }, [user.token]);
 
     function formatDate(dateString) {

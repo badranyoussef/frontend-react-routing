@@ -32,6 +32,7 @@ const Entity = ({ user }) => {
     }
 
     return (
+
         <Container>
             <div className="container">
                 <h2>Alle biler</h2>

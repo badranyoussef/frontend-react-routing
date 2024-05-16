@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchCarsForUser } from '../service/apiFacade';
 import styled from 'styled-components';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Container = styled.div`
     display: flex;
@@ -34,9 +33,9 @@ const Entity = ({ user }) => {
     return (
 
         <Container>
-            <div className="container">
+            <div>
                 <h2>Alle biler</h2>
-                <table className="table">
+                <table>
                     <thead>
                     <tr>
                         <th>Mærke</th>
